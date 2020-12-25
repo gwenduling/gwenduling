@@ -1,0 +1,21 @@
+@import "../../../assets/styles/helpers/text.scss";
+@import "../../../assets/styles/helpers/boxmodel.scss";
+@import "../../../assets/styles/helpers/helpers.scss";
+
+.not-found {
+  @extend ._padding-y;
+
+  .title {
+    @extend ._text-yellow;
+    @extend ._text-uppercase;
+    @extend ._text-bolder;
+    margin-bottom: 5px;
+  }
+
+  .description a {
+    padding-left: 1px;
+    &:hover {
+      @extend ._text-bold;
+    }
+  }
+}

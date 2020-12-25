@@ -1,0 +1,17 @@
+<div class="recent-posts _container" *ngIf="isStatus(state.Success)">
+  <p class="title">Recent Stories</p>
+  <div class="blog-list">
+    <div class="post" *ngFor="let post of posts">
+      <a [routerLink]="['/blog', 'post', post.slug]" title="{{ post.title }}">
+        <img [src]="post.featured_image" alt="{{ post.featured_image_alt || post.title }}">
+      </a>
+      <a class="link" [routerLink]="['/blog', 'post', post.slug]">
+        {{ post.title }}
+      </a>
+    </div>
+  </div>
+  <app-butter-link></app-butter-link>
+</div>
+
+<app-error *ngIf="isStatus(state.Error)" (callback)="getList()"></app-error>
+<app-loader *ngIf="isStatus(state.Loading)"></app-loader>

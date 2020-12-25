@@ -1,0 +1,44 @@
+<div class="_container list-container" *ngIf="posts && posts.length > 0 && isStatus(state.Success)">
+  <p class="title">{{ getTitle() }}</p>
+  <p class="page-info">
+    page
+    <span class="content">{{ page }}</span>
+    of
+    <span class="content">{{ getTotalPages() }}</span>
+  </p>
+
+  <div class="list-flex">
+    <div class="list-items">
+      <div class="post" *ngFor="let post of posts">
+        <a href="#" routerLink="/blog/post/{{ post.slug }}">
+          {{ post.title }}
+        </a>
+      </div>
+
+      <app-butter-link></app-butter-link>
+
+      <div class="blog-controls" *ngIf="meta">
+        <span *ngIf="meta.previous_page" class="control -prev" (click)="getList(meta.previous_page)">
+          PREV
+        </span>
+        <span *ngIf="meta.next_page" class="control -next" (click)="getList(meta.next_page)">
+          NEXT
+        </span>
+      </div>
+    </div>
+
+    <div class="list-photos">
+      <ng-container *ngFor="let post of posts | slice:0:4;">
+        <a class="photo" href="#" routerLink="/blog/post/{{ post.slug }}" title="{{ post.title }}">
+          <img [src]="post.featured_image" alt="{{ post.title }}">
+        </a>
+      </ng-container>
+    </div>
+
+  </div>
+</div>
+
+<app-error *ngIf="isStatus(state.Error)" (callback)="getList(getPage())"></app-error>
+<app-loader *ngIf="isStatus(state.Loading)"></app-loader>
+
+<app-blog-categories></app-blog-categories>

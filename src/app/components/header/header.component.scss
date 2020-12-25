@@ -1,0 +1,47 @@
+@import "../../../assets/styles/helpers/text.scss";
+@import "../../../assets/styles/helpers/boxmodel.scss";
+@import "../../../assets/styles/helpers/helpers.scss";
+
+.app-header {
+  @extend ._padding-bottom;
+  .title {
+    @extend ._padding-top;
+    @extend ._text-yellow;
+    @extend ._text-space-15;
+    @extend ._text-center;
+
+    font-size: 70px;
+
+    @media (max-width: 550px) {
+      font-size: 50px;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 30px;
+    }
+  }
+
+  .nav-items {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 16px;
+
+    .item {
+      @extend ._text-default;
+
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .divider {
+      @extend ._bg-yellow;
+
+      width: 1px;
+    }
+  }
+}

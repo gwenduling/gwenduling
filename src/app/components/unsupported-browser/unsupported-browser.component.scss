@@ -1,0 +1,47 @@
+@import "../../../assets/styles/helpers/text.scss";
+@import "../../../assets/styles/helpers/boxmodel.scss";
+@import "../../../assets/styles/helpers/helpers.scss";
+
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.modal-container {
+  display: flex;
+  align-content: center;
+  pointer-events: none;
+}
+
+.unsupported-browser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  min-width: 70vw;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-yellow);
+  .title {
+    @extend ._text-yellow;
+    @extend ._text-uppercase;
+    @extend ._text-bolder;
+
+    margin-bottom: 10px;
+  }
+
+  p:not(.title) {
+    font-size: 16px;
+  }
+}

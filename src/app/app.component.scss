@@ -1,0 +1,30 @@
+.app-main,
+app-footer,
+app-header {
+  z-index: 1;
+}
+
+.restricted-mobile {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--color-white);
+  background-color: var(--color-yellow);
+  z-index: 3;
+
+  p {
+    max-width: 85%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 319px) {
+  .restricted-mobile {
+    display: flex;
+  }
+}

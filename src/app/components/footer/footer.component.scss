@@ -1,0 +1,38 @@
+@import "../../../assets/styles/helpers/text.scss";
+@import "../../../assets/styles/helpers/boxmodel.scss";
+@import "../../../assets/styles/helpers/helpers.scss";
+
+.app-footer {
+  @extend ._padding-y;
+  @extend ._bg-yellow;
+
+  .footer-content {
+    @extend ._text-white;
+
+    .title {
+      @extend ._text-title;
+    }
+
+    .description a {
+      @extend ._text-bolder;
+    }
+  }
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .divider {
+    width: 1px;
+    height: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: var(--color-default);
+  }
+
+  .footer-link .link {
+    padding-right: 5px;
+  }
+}

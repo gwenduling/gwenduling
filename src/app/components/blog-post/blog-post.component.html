@@ -1,0 +1,39 @@
+<ng-container *ngIf="isStatus(state.Success)">
+  <div class="blog-header" *ngIf="post">
+    <div class="header-content">
+      <h1 class="title">{{ post?.title }}</h1>
+      <p class="author">
+        Story by {{ post.author.first_name }}{{ post.author.last_name }}
+      </p>
+      <p class="date">{{ getPublishedDate() }}</p>
+    </div>
+
+    <img class="image" [src]="post.featured_image" alt="{{ post.featured_image_alt || post.title }}">
+  </div>
+
+  <div class="body _container" [innerHTML]="body">
+  </div>
+
+  <div class="post-controls">
+    <div class="control-items _container">
+      <div *ngIf="meta?.previous_post" class="control -prev">
+        <p class="content">PREV</p>
+        <a title="{{ meta?.previous_post?.title }}"
+          [routerLink]="['/blog', 'post', meta?.previous_post?.slug]">{{ meta?.previous_post?.title }}</a>
+      </div>
+
+      <div *ngIf="meta?.next_post" class="control -next">
+        <p class="content">NEXT</p>
+        <a title="{{ meta?.next_post?.title }}"
+          [routerLink]="['/blog', 'post', meta?.next_post?.slug]">{{ meta?.next_post?.title }}</a>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<app-error *ngIf="isStatus(state.Error)" (callback)="getPost()"></app-error>
+<app-loader *ngIf="isStatus(state.Loading)"></app-loader>
+
+<app-blog-recent></app-blog-recent>
+
+<app-blog-categories></app-blog-categories>

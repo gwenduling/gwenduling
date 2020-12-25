@@ -1,0 +1,14 @@
+<div class="_divider"></div>
+<div *ngIf="categories && categories[0] && isStatus(state.Success)" class="blog-categories _container">
+  <p class="title">
+    Read more?
+  </p>
+  <div class="category-items">
+    <a routerLink="/blog/category/{{ category.slug }}" class="category _hover" *ngFor="let category of categories">
+      {{ this.getEmoji(category.name) }} {{ category.name }} stories
+    </a>
+  </div>
+</div>
+
+<app-error *ngIf="isStatus(state.Error)" (callback)="getCategories()"></app-error>
+<app-loader *ngIf="isStatus(state.Loading)"></app-loader>

@@ -1,0 +1,59 @@
+// text
+._text-center {
+  text-align: center;
+}
+
+._text-uppercase {
+  text-transform: uppercase;
+}
+
+._text-light {
+  font-weight: 200;
+}
+
+._text-bold {
+  font-weight: 400;
+}
+
+._text-bolder {
+  font-weight: 800;
+}
+
+._text-space-15 {
+  letter-spacing: 15px;
+}
+
+._text-title {
+  max-width: calc(100vw - 30px);
+  letter-spacing: 7px;
+  font-size: 30px;
+  @media (max-width: 500px) {
+    font-size: 20px;
+  }
+}
+
+._text-small {
+  font-size: 10px;
+}
+
+._text-yellow a,
+a._text-yellow,
+._text-yellow {
+  color: var(--color-yellow-darker);
+}
+
+._text-white a,
+a._text-white,
+._text-white {
+  color: var(--color-white);
+}
+
+._text-default,
+a._text-default,
+._text-default {
+  color: var(--color-default);
+}
+
+._text-indent {
+  text-indent: 25px;
+}

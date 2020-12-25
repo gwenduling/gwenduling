@@ -1,0 +1,16 @@
+@import "../../../assets/styles/helpers/text.scss";
+@import "../../../assets/styles/helpers/boxmodel.scss";
+@import "../../../assets/styles/helpers/helpers.scss";
+
+:host {
+  display: block;
+  margin-top: 5px;
+}
+
+.butter-link {
+  font-size: 12px;
+
+  a {
+    @extend ._text-yellow;
+  }
+}

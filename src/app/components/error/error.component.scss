@@ -1,0 +1,17 @@
+@import "../../../assets/styles/helpers/helpers.scss";
+@import "../../../assets/styles/helpers/boxmodel.scss";
+@import "../../../assets/styles/helpers/button.scss";
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  align-items: center;
+  justify-content: center;
+
+  .button {
+    @extend ._button;
+
+    margin-top: 10px;
+  }
+}
