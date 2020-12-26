@@ -6,10 +6,19 @@ phases:
             - echo Installing source NPM dependencies...
             - npm install
             - npm install -g @angular/cli
+    pre_build:
+        commands:
+            - echo Logging in to Docker Hub...
+            - docker login -u ajquiambao -p treseonce
     build:
         commands:
             - echo Build started on `date`
             - ng build
+            - echo Building the Docker image...
+            - docker build -t ajquiambao/gwenduling:1.0 .
+
     post_build:
          commands:
             - echo Build completed on `date`
+            - echo Pushing the Docker image...
+            - docker build -t ajquiambao/gwenduling:1.0
