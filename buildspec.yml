@@ -21,4 +21,4 @@ phases:
          commands:
             - echo Build completed on `date`
             - echo Pushing the Docker image...
-            - docker build -t ajquiambao/gwenduling:1.0
+            - docker push ajquiambao/gwenduling:1.0
