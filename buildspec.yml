@@ -1,24 +1,25 @@
 version: 0.2
 
 phases:
-    install:
-        commands:
-            - echo Installing source NPM dependencies...
-            - npm install
-            - npm install -g @angular/cli
-    pre_build:
-        commands:
-            - echo Logging in to Docker Hub...
-            - curl -s https://gwenduling.s3-ap-southeast-1.amazonaws.com/docker/secret.txt | docker login -u readonlykwe --password-stdin
-    build:
-        commands:
-            - echo Build started on `date`
-            - ng build
-            - echo Building the Docker image...
-            - docker build -t gwenduling/gwehh:1.0 .
+  install:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+      - npm install -g @angular/cli
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+      - curl -s https://gwenduling.s3-ap-southeast-1.amazonaws.com/docker/secret.txt | docker login -u readonlykwe --password-stdin
+  build:
+    commands:
+      - echo Build started on `date`
+      - ng build
+      - npm run build:ssr
+      - echo Building the Docker image...
+      - docker build -t gwenduling/gwehh:1.0 .
 
-    post_build:
-         commands:
-            - echo Build completed on `date`
-            - echo Pushing the Docker image...
-            - docker push gwenduling/gwehh:1.0
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push gwenduling/gwehh:1.0

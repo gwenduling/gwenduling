@@ -1,8 +1,8 @@
-FROM node:10-alpine
+FROM node:12-alpine
 
 ENV APP_USER=kwe APP_HOME=/home/kwe
 
-COPY ./dist/ ${APP_USER}/dist/
+COPY ./dist/ ${APP_HOME}/dist/
 COPY ./initsvc.sh ${APP_HOME}/
 
 RUN adduser -D -u 500 -h ${APP_HOME} -s /bin/false ${APP_USER} \
