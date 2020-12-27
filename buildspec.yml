@@ -9,7 +9,7 @@ phases:
     pre_build:
         commands:
             - echo Logging in to Docker Hub...
-            - docker login -u readonlykwe --password-stdin https://gwenduling.s3-ap-southeast-1.amazonaws.com/docker/secret.txt
+            - curl -s https://gwenduling.s3-ap-southeast-1.amazonaws.com/docker/secret.txt | docker login -u readonlykwe --password-stdin
     build:
         commands:
             - echo Build started on `date`
