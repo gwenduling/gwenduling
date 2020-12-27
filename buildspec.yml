@@ -15,10 +15,10 @@ phases:
             - echo Build started on `date`
             - ng build
             - echo Building the Docker image...
-            - docker build -t ajquiambao/gwenduling:1.0 .
+            - docker build -t gwenduling/gwehh:1.0 .
 
     post_build:
          commands:
             - echo Build completed on `date`
             - echo Pushing the Docker image...
-            - docker push ajquiambao/gwenduling:1.0
+            - docker push gwenduling/gwehh:1.0
