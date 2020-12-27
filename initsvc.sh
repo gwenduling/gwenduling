@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
-node dist/server
+node dist/gwenduling/server
