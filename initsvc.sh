@@ -1,3 +1,3 @@
 #!/bin/sh
 
-node dist/gwenduling/server
+node dist/gwenduling/server/main.js
