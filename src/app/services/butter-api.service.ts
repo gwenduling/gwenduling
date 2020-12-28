@@ -4,15 +4,20 @@ import { butterService } from './butter.service';
 import { BlogList, BlogCategories, BlogListParams } from '../models/blog.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ButterApiService {
   page = 1;
   pageSize = 10;
 
-  constructor() { }
+  constructor() {}
 
-  getList(page = this.page, category: string | undefined, pageSize = this.pageSize): Promise<BlogList> {
+  getList(
+    page = this.page,
+    category?: string | undefined,
+    tag?: string | undefined,
+    pageSize = this.pageSize
+  ): Promise<BlogList> {
     const params: BlogListParams = {
       exclude_body: true,
       page,
@@ -23,10 +28,13 @@ export class ButterApiService {
       params.category_slug = category;
     }
 
+    if (tag) {
+      params.tag_slug = tag;
+    }
+
     this.page = page;
 
-    return butterService.post
-      .list(params);
+    return butterService.post.list(params);
   }
 
   getCategories(): Promise<BlogCategories> {

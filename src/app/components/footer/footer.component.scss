@@ -1,20 +1,21 @@
-@import "../../../assets/styles/helpers/text.scss";
-@import "../../../assets/styles/helpers/boxmodel.scss";
-@import "../../../assets/styles/helpers/helpers.scss";
+@import "../../../assets/styles/utilities.scss";
 
 .app-footer {
   @extend ._padding-y;
-  @extend ._bg-yellow;
+  background-color: var(--color-yellow);
 
   .footer-content {
-    @extend ._text-white;
+    color: var(--color-white);
 
     .title {
       @extend ._text-title;
+      color: var(--color-white);
     }
 
     .description a {
-      @extend ._text-bolder;
+      @extend ._focus-white;
+      font-weight: var(--text-weight-bolder);
+      color: var(--color-white);
     }
   }
 }
@@ -24,6 +25,7 @@
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
+  background-color: var(--color-white);
   .divider {
     width: 1px;
     height: 16px;

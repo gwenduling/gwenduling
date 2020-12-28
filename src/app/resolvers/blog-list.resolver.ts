@@ -2,7 +2,7 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import {
   Resolve,
   RouterStateSnapshot,
-  ActivatedRouteSnapshot
+  ActivatedRouteSnapshot,
 } from '@angular/router';
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
@@ -11,7 +11,7 @@ import { ButterApiService } from '../services/butter-api.service';
 import { BlogList } from '../models/blog.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BlogListResolver implements Resolve<BlogList> {
   constructor(
@@ -22,13 +22,18 @@ export class BlogListResolver implements Resolve<BlogList> {
 
   async resolve(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
+    state: RouterStateSnapshot
   ): Promise<BlogList> {
     const category = route?.params?.category;
-    const CATEGORY_KEY = makeStateKey<Promise<BlogList>>('category-' + category || 'blog');
+    const CATEGORY_KEY = makeStateKey<Promise<BlogList>>(
+      'category-' + (category || 'blog')
+    );
 
     if (this.transferState.hasKey(CATEGORY_KEY)) {
-      const blogList = this.transferState.get<Promise<BlogList>>(CATEGORY_KEY, Promise.reject());
+      const blogList = this.transferState.get<Promise<BlogList>>(
+        CATEGORY_KEY,
+        Promise.resolve({ data: undefined })
+      );
       this.transferState.remove(CATEGORY_KEY);
       return blogList;
     } else {

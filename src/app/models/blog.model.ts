@@ -59,6 +59,7 @@ export interface BlogListParams {
   page: number;
   page_size: number;
   category_slug?: string;
+  tag_slug?: string;
 }
 
 export interface BlogPostMetaItem {

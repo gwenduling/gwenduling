@@ -2,6 +2,11 @@
   <div class="blog-header" *ngIf="post">
     <div class="header-content">
       <h1 class="title">{{ post?.title }}</h1>
+      <div class="tags">
+        <span class="tag" *ngFor="let tag of post?.tags">
+          #{{ removeSpace(tag.name) }}&nbsp;
+        </span>
+      </div>
       <p class="author">
         Story by {{ post.author.first_name }}{{ post.author.last_name }}
       </p>
@@ -14,21 +19,38 @@
   <div class="body _container" [innerHTML]="body">
   </div>
 
+  <div class="related-posts" *ngIf="relatedPosts && relatedPosts[0]">
+    <div class="_divider"></div>
+    <div class="_container _padding-y">
+      <p class="title">Related Posts</p>
+      <ul class="posts">
+        <li *ngFor="let relatedPost of relatedPosts">
+          👉🏼
+          <a [routerLink]="['/blog', relatedPost.slug]" title="{{ relatedPost.name }}">
+            {{ relatedPost.name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <div class="post-controls">
     <div class="control-items _container">
       <div *ngIf="meta?.previous_post" class="control -prev">
         <p class="content">PREV</p>
         <a title="{{ meta?.previous_post?.title }}"
-          [routerLink]="['/blog', 'post', meta?.previous_post?.slug]">{{ meta?.previous_post?.title }}</a>
+          [routerLink]="['/blog', meta?.previous_post?.slug]">{{ meta?.previous_post?.title }}</a>
       </div>
 
       <div *ngIf="meta?.next_post" class="control -next">
         <p class="content">NEXT</p>
         <a title="{{ meta?.next_post?.title }}"
-          [routerLink]="['/blog', 'post', meta?.next_post?.slug]">{{ meta?.next_post?.title }}</a>
+          [routerLink]="['/blog', meta?.next_post?.slug]">{{ meta?.next_post?.title }}</a>
       </div>
     </div>
   </div>
+
+  <button class="to-top" *ngIf="pageScrolled" (click)="backToTop()" title="back to top">⬆️</button>
 </ng-container>
 
 <app-error *ngIf="isStatus(state.Error)" (callback)="getPost()"></app-error>

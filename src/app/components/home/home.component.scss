@@ -1,12 +1,10 @@
-@import "../../../assets/styles/helpers/text.scss";
-@import "../../../assets/styles/helpers/boxmodel.scss";
-@import "../../../assets/styles/helpers/helpers.scss";
+@import "../../../assets/styles/utilities.scss";
 
 .home-content {
   @extend ._padding-y;
   display: flex;
 
-  @media (max-width: 660px) {
+  @media (max-width: 780px) {
     flex-direction: column-reverse;
 
     .home-photos {
@@ -58,22 +56,24 @@
 .home-info {
   .title {
     @extend ._text-title;
-    @extend ._padding-bottom;
+    padding-bottom: 20px;
+    color: var(--color-yellow-darker);
   }
 
   .about {
     @extend ._padding-left;
-    @extend ._padding-bottom;
 
     p {
       line-height: 2;
     }
 
-    @media (max-width: 660px) {
+    @media (max-width: 900px) {
       padding-left: 30px;
+    }
 
+    @media (max-width: 660px) {
       p {
-        font-size: 16px;
+        font-size: var(--text-size);
       }
     }
   }

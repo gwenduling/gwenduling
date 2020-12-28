@@ -1,0 +1,117 @@
+@import "../../../assets/styles/utilities.scss";
+
+.cv-header {
+  @extend ._padding-y;
+  color: var(--color-yellow-darker);
+
+  .name {
+    font-size: 55px;
+    font-weight: var(--text-weight-bolder);
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
+  .title {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: var(--text-weight-bolder);
+    letter-spacing: 1;
+    line-height: 1;
+  }
+
+  .website {
+    font-size: 20px;
+    font-weight: var(--text-weight-normal);
+    color: var(--color-yellow-darker);
+  }
+
+  @media (max-width: 600px) {
+    .name {
+      font-size: 40px;
+    }
+
+    .title {
+      font-size: 25px;
+    }
+
+    .website {
+      font-size: 18px;
+    }
+  }
+}
+
+.cv-content {
+  display: flex;
+
+  .column {
+    &:first-child {
+      flex-basis: 40%;
+      flex-shrink: 0;
+      padding-right: 20px;
+    }
+    &:nth-child(2) {
+      flex-grow: 1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+
+    .column {
+      &:first-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.cv-group {
+  margin-bottom: 30px;
+  letter-spacing: 0;
+
+  .title {
+    font-size: var(--text-size-subtitle);
+    font-weight: var(--text-weight-bolder);
+    text-transform: uppercase;
+    color: var(--color-yellow-darker);
+    &._text-white {
+      color: var(--color-white);
+    }
+  }
+
+  .link {
+    font-size: var(--text-size-subtitle);
+    font-weight: var(--text-weight-bolder);
+    letter-spacing: 0;
+  }
+
+  .subtitle {
+    font-size: var(--text-size);
+    font-weight: var(--text-weight-bold);
+  }
+
+  .text {
+    padding-top: 10px;
+    font-size: var(--text-size);
+    font-weight: var(--text-weight-normal);
+    letter-spacing: 2px;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .date {
+    font-size: 13px;
+    font-weight: var(--text-weight-normal);
+  }
+
+  .list {
+    padding-left: 15px;
+    margin-top: 3px;
+    margin-bottom: 0;
+  }
+}

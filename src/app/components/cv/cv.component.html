@@ -1,0 +1,133 @@
+<div class="cv-header _container">
+  <p class="name" title="real name, long story haha">{{ data.intro.name }}</p>
+  <p class="title">{{ data.intro.title }}</p>
+  <a title="gwenduling website" routerLink="/" class="website">{{ data.intro.website }}</a>
+</div>
+<div class="_container cv-content">
+  <div class="column">
+    <!-- summary -->
+    <div class="cv-group">
+      <p class="title">Summary</p>
+      <p class="text">{{ data.intro.bio }}</p>
+    </div>
+
+    <!-- personal -->
+    <div class="cv-group">
+      <div class="title">Personal Info</div>
+      <div class="text">
+        <p>
+          <span class="subtitle">Birthday: </span>
+          <span>{{ data.personal.birthday }}</span>
+        </p>
+        <p>
+          <span class="subtitle">Age: </span>
+          <span>{{ age }}</span>
+        </p>
+        <p>
+          <span class="subtitle">Address: </span>
+          <span>{{ data.personal.address }}</span>
+        </p>
+        <p>
+          <span class="subtitle">Email: </span>
+          <a title="send me an email!" href="mailto:gioweeargao@gmail.com?Subject=Hello%20Gweh!" target="_top">
+            {{ data.personal.email }}
+          </a>
+        </p>
+        <p>
+          <span class="subtitle">Mobile: </span>
+          <span>{{ data.personal.mobile }}</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- education -->
+    <div class="cv-group">
+      <p class="title">
+        Education
+      </p>
+      <div class="text" *ngFor="let educ of data.education">
+        <p>
+          <span class="subtitle">{{ educ.school }}</span>
+          <span class="date">&nbsp;({{ educ.date }})</span>
+        </p>
+        <ul class="list">
+          <li *ngFor="let content of educ.content">{{ content }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- work -->
+    <div class="cv-group">
+      <p class="title">
+        Work Experience
+      </p>
+
+      <div class="text" *ngFor="let company of data.work">
+        <a class="link" [href]="company.link" target="_blank" title="{{ company.company }} website">
+          {{ company.company }}
+        </a>
+
+        <div class="text" *ngFor="let title of company.titles">
+          <p class="subtitle">{{ title.title }}</p>
+          <p class="date">{{ title.date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <!-- responsibilities -->
+    <div class="cv-group">
+      <p class="title">
+        Responsibilities
+      </p>
+
+      <div class="text" *ngFor="let role of data.responsibilities">
+        <p class="subtitle">
+          {{ role.for }}
+        </p>
+        <ul class="list">
+          <li *ngFor="let content of role.content">{{ content }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- tools -->
+    <div class="cv-group">
+      <p class="title">
+        Tools and Technologies Familiar With
+      </p>
+
+      <div class="text" *ngFor="let role of data.tools">
+        <p class="subtitle">
+          For {{ role.for }}
+        </p>
+        <ul class="list">
+          <li *ngFor="let tool of role.tools">
+            <a *ngIf="tool.link" class="subtitle" [href]="tool.link" target="_blank" title="{{ tool.name }}">
+              {{ tool.name }}</a>
+            <span class="subtitle" *ngIf="!tool.link">
+              {{ tool.name }}
+            </span>
+            <span *ngIf="tool.description"> - {{ tool.description }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- conferences -->
+    <div class="cv-group">
+      <p class="title">
+        Conferences
+      </p>
+
+      <div class="text">
+        <div *ngFor="let conf of data.conferences">
+          <a class="subtitle" [href]="conf.link" target="_blank">
+            {{ conf.name }}
+          </a>
+          <p class="date">{{ conf.date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

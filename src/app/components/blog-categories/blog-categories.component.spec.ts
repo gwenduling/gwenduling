@@ -1,5 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  flushMicrotasks,
+  TestBed,
+} from '@angular/core/testing';
 
+import { State } from '../../models/state.model';
+import { ButterApiService } from '../../services/butter-api.service';
+import { mockCategories } from '../../test-data/blog';
 import { BlogCategoriesComponent } from './blog-categories.component';
 
 describe('BlogCategoriesComponent', () => {
@@ -8,9 +16,8 @@ describe('BlogCategoriesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BlogCategoriesComponent ]
-    })
-    .compileComponents();
+      declarations: [BlogCategoriesComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -38,4 +45,24 @@ describe('BlogCategoriesComponent', () => {
   it('should get personal emoji', () => {
     expect(component.getEmoji('personal')).toBe('💁🏻‍♀️');
   });
+
+  it('should get categories', async () => {
+    const butterService = TestBed.inject(ButterApiService);
+    spyOn(butterService, 'getCategories').and.returnValue(
+      Promise.resolve(mockCategories)
+    );
+
+    await component.getCategories();
+    expect(component.categories).toHaveSize(2);
+  });
+
+  it('should set state to error on response error', fakeAsync(() => {
+    const butterService = TestBed.inject(ButterApiService);
+    spyOn(butterService, 'getCategories').and.returnValue(
+      Promise.reject(new Error(''))
+    );
+    component.getCategories();
+    flushMicrotasks();
+    expect(component.blogCategoriesStatus).toBe(State.Error);
+  }));
 });

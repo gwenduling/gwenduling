@@ -33,11 +33,22 @@ a {
 
 p {
   margin: 0;
-  font-size: 18px;
+  font-size: var(--text-size);
   line-height: 1.2;
 }
 
 mark,
 ::selection {
   background: rgba(var(--color-yellow-rgb), 0.7);
+}
+
+button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 5px 4px var(--color-yellow);
+  }
 }

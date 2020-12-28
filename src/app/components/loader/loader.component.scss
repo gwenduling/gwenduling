@@ -1,13 +1,9 @@
-@import "../../../assets/styles/helpers/helpers.scss";
-@import "../../../assets/styles/helpers/boxmodel.scss";
-
 .loading-ui {
   display: flex;
   min-height: 300px;
 
   .content {
-    @extend ._margin-auto;
-
+    margin: auto;
     animation: 2s infinite opacity;
   }
 }

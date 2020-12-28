@@ -2,10 +2,10 @@
   <p class="title">Recent Stories</p>
   <div class="blog-list">
     <div class="post" *ngFor="let post of posts">
-      <a [routerLink]="['/blog', 'post', post.slug]" title="{{ post.title }}">
+      <a [routerLink]="['/blog', post.slug]" title="{{ post.title }}">
         <img [src]="post.featured_image" alt="{{ post.featured_image_alt || post.title }}">
       </a>
-      <a class="link" [routerLink]="['/blog', 'post', post.slug]">
+      <a class="link" [routerLink]="['/blog', post.slug]">
         {{ post.title }}
       </a>
     </div>

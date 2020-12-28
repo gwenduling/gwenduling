@@ -1,13 +1,10 @@
-@import "../../../assets/styles/helpers/text.scss";
-@import "../../../assets/styles/helpers/boxmodel.scss";
-@import "../../../assets/styles/helpers/helpers.scss";
+@import "../../../assets/styles/utilities.scss";
 
 .recent-posts {
   @extend ._padding-y;
   .title {
-    @extend ._text-yellow;
-    @extend ._text-uppercase;
-    @extend ._text-bolder;
+    @extend ._text-title;
+    color: var(--color-yellow-darker);
   }
 
   .blog-list {
@@ -31,10 +28,6 @@
         width: 100%;
         height: 200px;
         object-fit: cover;
-      }
-
-      .link {
-        font-size: 18px;
       }
     }
 

@@ -1,6 +1,4 @@
-@import "../../../assets/styles/helpers/text.scss";
-@import "../../../assets/styles/helpers/boxmodel.scss";
-@import "../../../assets/styles/helpers/helpers.scss";
+@import "../../../assets/styles/utilities.scss";
 
 :host {
   display: block;
@@ -11,6 +9,6 @@
   font-size: 12px;
 
   a {
-    @extend ._text-yellow;
+    color: var(--color-yellow);
   }
 }

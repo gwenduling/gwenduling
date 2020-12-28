@@ -1,21 +1,23 @@
-@import "../../../assets/styles/helpers/text.scss";
-@import "../../../assets/styles/helpers/boxmodel.scss";
-@import "../../../assets/styles/helpers/helpers.scss";
+@import "../../../assets/styles/utilities.scss";
 
 .not-found {
   @extend ._padding-y;
 
   .title {
-    @extend ._text-yellow;
-    @extend ._text-uppercase;
-    @extend ._text-bolder;
-    margin-bottom: 5px;
+    @extend ._text-title;
+    color: var(--color-yellow-darker);
   }
 
   .description a {
     padding-left: 1px;
     &:hover {
-      @extend ._text-bold;
+      font-weight: var(--text-weight-bold);
     }
+  }
+
+  .button {
+    @extend ._button;
+
+    margin-top: 10px;
   }
 }

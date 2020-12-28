@@ -4,7 +4,7 @@
     Read more?
   </p>
   <div class="category-items">
-    <a routerLink="/blog/category/{{ category.slug }}" class="category _hover" *ngFor="let category of categories">
+    <a routerLink="/category/{{ category.slug }}" class="category _hover" *ngFor="let category of categories">
       {{ this.getEmoji(category.name) }} {{ category.name }} stories
     </a>
   </div>

@@ -10,7 +10,7 @@ import { State } from '../../models/state.model';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss']
+  styleUrls: ['./blog.component.scss'],
 })
 export class BlogComponent implements OnInit {
   posts: BlogListItem[] | undefined = [];
@@ -25,17 +25,16 @@ export class BlogComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private butterApiService: ButterApiService,
     private metaService: MetaService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(data => {
+    this.activatedRoute.data.subscribe((data) => {
       if (data?.blogList) {
         this.blogListStatus = State.Success;
         this.setBlogListData(data.blogList);
       } else {
         this.blogListStatus = State.Error;
       }
-      
     });
 
     this.category = this.activatedRoute?.snapshot?.params?.category;
@@ -57,32 +56,40 @@ export class BlogComponent implements OnInit {
   setMetatags(): void {
     const metadata = {
       ...blogMeta,
-      title: this.category ? `${blogMeta.title} | ${this.category}` : blogMeta.title,
-      url: this.category ? `${blogMeta.url}/category/${this.category}` : blogMeta.url
-    }
+      title: this.category
+        ? `${blogMeta.title} | ${this.category}`
+        : blogMeta.title,
+      url: this.category ? `/category/${this.category}` : blogMeta.url,
+    };
     this.metaService.setMetaTags(metadata);
   }
 
   getTotalPages(): number | undefined {
-    if (!this.meta || !this.pageSize) { return; }
+    if (!this.meta || !this.pageSize) {
+      return;
+    }
 
     return Math.ceil(this.meta.count / this.pageSize);
   }
 
   getList(page: number): void {
     this.blogListStatus = State.Loading;
-    this.butterApiService.getList(page, this.category).then((response: BlogList) => {
-      this.setBlogListData(response);
-      this.blogListStatus = State.Success;
-    })
-    .catch(error => {
-      console.error(error);
-      this.blogListStatus = State.Error;
-    });
+    this.butterApiService
+      .getList(page, this.category)
+      .then((response: BlogList) => {
+        this.setBlogListData(response);
+        this.blogListStatus = State.Success;
+      })
+      .catch((error) => {
+        console.error(error);
+        this.blogListStatus = State.Error;
+      });
   }
 
   getTitle(): string {
-    return this.category ? `${this.category} stories ☕️` : 'recent stories ☕️';
+    return this.category
+      ? `${this.category} stories ☕️`
+      : 'recent stories ☕️';
   }
 
   isStatus(state: State): boolean {

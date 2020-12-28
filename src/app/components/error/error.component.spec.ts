@@ -8,9 +8,8 @@ describe('ErrorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ErrorComponent ]
-    })
-    .compileComponents();
+      declarations: [ErrorComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,11 @@ describe('ErrorComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call callback', () => {
+    spyOn(component.callback, 'emit');
+    component.emitCallback();
+    expect(component.callback.emit).toHaveBeenCalled();
   });
 });

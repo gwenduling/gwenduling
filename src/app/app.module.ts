@@ -15,6 +15,7 @@ import { BlogRecentComponent } from './components/blog-recent/blog-recent.compon
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { UnsupportedBrowserComponent } from './components/unsupported-browser/unsupported-browser.component';
 import { ErrorComponent } from './components/error/error.component';
+import { CvComponent } from './components/cv/cv.component';
 
 @NgModule({
   declarations: [
@@ -30,15 +31,14 @@ import { ErrorComponent } from './components/error/error.component';
     BlogRecentComponent,
     PageNotFoundComponent,
     UnsupportedBrowserComponent,
-    ErrorComponent
+    ErrorComponent,
+    CvComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [
-    TransferState
-  ],
-  bootstrap: [AppComponent]
+  providers: [TransferState],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
