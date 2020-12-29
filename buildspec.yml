@@ -16,7 +16,7 @@ phases:
       - ng build
       - npm run build:ssr
       - echo Building the Docker image...
-      - docker build --platform linux/amd64 -tgwenduling/gwehh:1.0 .
+      - docker build --platform linux/amd64 -t gwenduling/gwehh:1.0 .
 
   post_build:
     commands:
