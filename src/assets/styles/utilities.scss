@@ -109,6 +109,7 @@
   font-size: var(--text-size);
   font-weight: var(--text-weight-bold);
   text-align: center;
+  line-height: 18px;
   border-radius: 4px;
   transition-duration: 0.5s;
 
@@ -116,6 +117,20 @@
     border: 1px solid var(--color-white);
     color: #fff;
     background-color: var(--color-yellow);
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: var(--color-yellow-darker);
+      color: var(--color-white);
+    }
+  }
+
+  &.-white {
+    border: 1px solid var(--color-yellow);
+    color: var(--color-yellow);
+    background-color: var(--color-white);
     cursor: pointer;
 
     &:hover,

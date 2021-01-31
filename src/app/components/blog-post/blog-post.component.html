@@ -1,3 +1,7 @@
+<app-info *ngIf="isCategoryDev()" [link]="'https://mentorslab.io/'"
+  [content]="'I now offer one on one online dev mentorship via MentorsLab!'">
+</app-info>
+
 <ng-container *ngIf="isStatus(state.Success)">
   <div class="blog-header" *ngIf="post">
     <div class="header-content">

@@ -1,3 +1,7 @@
+<app-info *ngIf="category === 'dev'" [link]="'https://mentorslab.io/'"
+  [content]="'I now offer one on one online dev mentorship via MentorsLab!'">
+</app-info>
+
 <div class="_container list-container" *ngIf="posts && posts.length > 0 && isStatus(state.Success)">
   <p class="title">{{ getTitle() }}</p>
   <p class="page-info">

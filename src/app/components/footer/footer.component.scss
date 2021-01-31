@@ -5,7 +5,9 @@
   background-color: var(--color-yellow);
 
   .footer-content {
-    color: var(--color-white);
+    p {
+      color: var(--color-white);
+    }
 
     .title {
       @extend ._text-title;

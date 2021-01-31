@@ -3,7 +3,7 @@ body {
   height: 100vh;
   margin: 0;
   font-family: "Inconsolata", monospace;
-  font-weight: 200;
+  font-weight: var(--text-weight-normal);
   letter-spacing: 2px;
   background-color: var(--color-white);
   overflow-x: hidden;
@@ -23,7 +23,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: var(--color-default);
 
   &:focus {
     outline: 0;
@@ -35,6 +35,7 @@ p {
   margin: 0;
   font-size: var(--text-size);
   line-height: 1.2;
+  color: var(--color-default);
 }
 
 mark,

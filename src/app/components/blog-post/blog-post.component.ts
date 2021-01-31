@@ -161,4 +161,11 @@ export class BlogPostComponent implements OnInit {
   backToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  isCategoryDev(): boolean {
+    if (!this.post || !this.post.categories) return false;
+
+    const categories = this.post?.categories;
+    return categories.some((o) => o.slug === 'dev');
+  }
 }

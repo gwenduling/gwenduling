@@ -13,6 +13,8 @@ import { isPlatformServer } from '@angular/common';
 import * as Bowser from 'bowser';
 
 import { MetaService } from './services/meta.service';
+import { EventsService } from './services/events.service';
+import { EventDay } from './models/event.model';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +28,7 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private metaService: MetaService,
+    private eventsService: EventsService,
     @Inject(PLATFORM_ID) private platformId: typeof PLATFORM_ID
   ) {
     router.events
@@ -89,5 +92,13 @@ export class AppComponent implements OnInit {
     });
 
     this.isValidBrowser = !isInValidBrowser;
+  }
+
+  get event(): EventDay | undefined {
+    return this.eventsService.event;
+  }
+
+  get showEventPanel(): boolean {
+    return this.eventsService.showPanel;
   }
 }

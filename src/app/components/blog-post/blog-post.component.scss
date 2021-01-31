@@ -23,6 +23,7 @@
       font-size: 30px;
       font-weight: var(--text-weight-normal);
       word-break: break-word;
+      color: var(--color-default);
 
       @media (max-width: 600px) {
         margin-top: 20px;
@@ -302,10 +303,10 @@
       flex-grow: 0;
       flex-shrink: 0;
       word-break: break-word;
-      color: var(--color-white);
 
       .content {
         @extend ._text-title;
+        color: var(--color-white);
       }
 
       a {

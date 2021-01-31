@@ -1,0 +1,6 @@
+<div class="info-component">
+  <div class="_container">
+    <a class="info" *ngIf="link" href="{{ link }}" target="_blank">{{emoji}} {{ content }} {{emoji}}</a>
+    <p class="info" *ngIf="!link">{{emoji}} {{ content }} {{emoji}}</p>
+  </div>
+</div>

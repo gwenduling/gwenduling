@@ -16,6 +16,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { UnsupportedBrowserComponent } from './components/unsupported-browser/unsupported-browser.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CvComponent } from './components/cv/cv.component';
+import { InfoComponent } from './components/info/info.component';
+import { ConfettiComponent } from './components/confetti/confetti.component';
+import { EventComponent } from './components/event/event.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { CvComponent } from './components/cv/cv.component';
     UnsupportedBrowserComponent,
     ErrorComponent,
     CvComponent,
+    InfoComponent,
+    ConfettiComponent,
+    EventComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

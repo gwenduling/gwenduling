@@ -1,0 +1,17 @@
+@import "../../../assets/styles/utilities.scss";
+
+.info-component {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #daba59;
+  .info {
+    text-align: center;
+    font-weight: var(--text-weight-bolder);
+    color: var(--color-white);
+  }
+
+  a.info {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,98 @@
+@import "../../../assets/styles/utilities.scss";
+
+:host {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  max-height: 100vh;
+  background-color: var(--color-white);
+  box-shadow: 0 0 5px 4px var(--color-yellow);
+  z-index: 4;
+  overflow: auto;
+  animation: ShowUp 3s;
+}
+
+@keyframes ShowUp {
+  0% {
+    bottom: -500px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+.event-component {
+  @extend ._padding-y;
+  position: relative;
+  text-align: center;
+
+  .title {
+    @extend ._text-title;
+    font-size: 30px;
+    color: var(--color-yellow-darker);
+  }
+
+  .content {
+    font-weight: var(--text-weight-bold);
+    color: var(--color-dark);
+  }
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    cursor: pointer;
+
+    &:focus {
+      padding-left: 5px;
+      border-radius: 100%;
+    }
+  }
+}
+
+.event-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  .button {
+    @extend ._button;
+
+    &.-first {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media (max-width: 910px) {
+  .event-component {
+    .close {
+      right: 15px;
+      top: 30px;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .event-component {
+    .title {
+      font-size: 25px;
+    }
+    .close {
+      right: 15px;
+      top: 15px;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .event-buttons {
+    flex-direction: column;
+    .button {
+      &.-first {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

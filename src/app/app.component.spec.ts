@@ -1,9 +1,18 @@
 import { TestBed } from '@angular/core/testing';
-import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
+import {
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router,
+  RouterEvent,
+} from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+import { EventsService } from './services/events.service';
+import { mockEvents } from './test-data/event';
 
 let methodSpy: jasmine.Spy;
 
@@ -11,21 +20,15 @@ const eventSubject = new ReplaySubject<RouterEvent>(1);
 const routerMock = {
   navigate: jasmine.createSpy('navigate'),
   events: eventSubject.asObservable(),
-  url: 'test/url'
+  url: 'test/url',
 };
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-      providers: [
-        { provide: Router, useValue: routerMock }
-      ]
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
+      providers: [{ provide: Router, useValue: routerMock }],
     }).compileComponents();
   });
 
@@ -77,5 +80,24 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     app.checkRouterEvent(new NavigationError(2, 'test', 'test1'));
     expect(app.loading).toBeFalsy();
+  });
+
+  it('should get event', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    const eventsService = TestBed.inject(EventsService);
+    eventsService.event = mockEvents[0];
+    eventsService.hasEventToday = () => true;
+    expect(app.event).toEqual(mockEvents[0]);
+  });
+
+  it('should get show event panel value', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    const eventsService = TestBed.inject(EventsService);
+    eventsService.event = mockEvents[0];
+    eventsService.hasEventToday = () => true;
+    eventsService.showPanel = false;
+    expect(app.showEventPanel).toBeFalsy();
   });
 });

@@ -3,6 +3,8 @@
   <router-outlet *ngIf="!loading"></router-outlet>
   <app-loader *ngIf="loading"></app-loader>
 </div>
+<app-info *ngIf="event && (!showEventPanel || !event.description)" [content]="event.name" [emoji]="event.emoji[0]">
+</app-info>
 <app-footer></app-footer>
 
 <app-unsupported-browser *ngIf="!isValidBrowser"></app-unsupported-browser>
@@ -10,3 +12,7 @@
 <div class="restricted-mobile">
   <p>Hello, your viewport is too small. ☹️</p>
 </div>
+
+<app-event *ngIf="event && showEventPanel && event.description" [event]="event"></app-event>
+<app-confetti *ngIf="event && showEventPanel" [emoji]="event.emoji">
+</app-confetti>
