@@ -3,9 +3,29 @@ import { EventDay } from '../models/event.model';
 export const events: EventDay[] = [
   {
     date: '2021/01/31',
-    name: `New feature: Emoji Confetti! Did you see it?`,
-    emoji: ['🐣', '🦑', '🤷🏻‍♀️', '🐤', '🏖', '🍫', '🍟'],
-    description: `Using HTML5 Canvas I added a new feature here to show a confetti of (selected) emojis that is based on events; my birthday, anniversaries, holidays, announcements, whatever I like really. It's been a while since I last played around with HTML5 canvas and I can't believe I managed to create what was inside my head 🤯! You can refresh this page to see the confetti feature again (if you haven't closed this panel yet).`,
+    name: `New feature: Emoji Party! Did you see it?`,
+    emoji: ['🐣', '🦑', '🤷🏻‍♀️', '🐤', '🍫', '🤙🏻'],
+    description: `Using HTML5 Canvas I added a new feature here to show flying (selected) emojis that is based on events; my birthday, anniversaries, holidays, announcements, whatever I like really. It's been a while since I last played around with HTML5 canvas and I can't believe I managed to create what was inside my head 🤯! You can refresh this page to see the feature again (if you haven't closed this panel yet).`,
+    link: {
+      href: 'https://codepen.io/gwenduling/full/gOLbajG',
+      label: 'View on CodePen',
+    },
+  },
+  {
+    date: '2021/02/01',
+    name: `Production test: Day 2 of Emoji Party`,
+    emoji: ['🦑', '🐤', '🐶', '🐘', '🙈'],
+    description: `Okay I just wanted to see more of this awesome new feature (flying emojis). Thanks for stopping by!`,
+    link: {
+      href: 'https://codepen.io/gwenduling/full/gOLbajG',
+      label: 'View on CodePen',
+    },
+  },
+  {
+    date: '2021/02/02',
+    name: `Production test: Day 3 of Emoji Party`,
+    emoji: ['☀️', '🏖', '🌴', '✈', '🍂'],
+    description: `Nope. Not yet tired of this emoji party 🤙🏻. Back to normal tomorrow!`,
     link: {
       href: 'https://codepen.io/gwenduling/full/gOLbajG',
       label: 'View on CodePen',

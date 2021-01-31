@@ -46,7 +46,7 @@ export class ConfettiComponent implements OnInit {
         emoji: this.emoji![Math.floor(Math.random() * this.emoji!.length)],
         x,
         y: this.canvasHeight! + offsetY,
-        count: Math.floor(Math.random() * 3) + 4,
+        count: Math.floor(Math.random() * 3) + 5,
         fontSize,
       });
 
