@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformServer } from '@angular/common';
 import * as dayjs from 'dayjs';
 import * as locale from 'dayjs/locale/tl-ph';
 
@@ -13,10 +14,14 @@ export class EventsService {
   _event: EventDay | undefined;
   showPanel: boolean = false;
 
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) private platformId: typeof PLATFORM_ID) {}
 
   hasEventToday(): boolean {
     const today = dayjs().locale(locale);
+
+    if (isPlatformServer(this.platformId)) {
+      return false;
+    }
 
     return this.events.some((event: EventDay) => {
       const day = dayjs(event.date).locale(locale);
