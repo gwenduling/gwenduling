@@ -36,10 +36,36 @@ export const events: EventDay[] = [
     name: `It's my birthday today!`,
     emoji: ['🐣', '🎁', '🎈', '🎂', '🥳'],
     description:
-      'So that was 25 years! I got lucky with the decision I made at 16 years old on what I will do with my life (write code). That was almost 10 years ago 👵🏼! I am overwhelmed with all the blessing that came with this career so a new goal of mine is to (finally) give back. Thank you for supporting my personal website on my birthday! 🐣',
+      // tslint:disable-next-line: max-line-length
+      // tslint:disable-next-line: quotemark
+      'Been stressing since the start of 2021 that I will be 25 years old this year! That was definitely way too fast for me to process 🤯! If all goes as planned (unlike last year), we are now en route to our first travel since lockdown. Thanks for supporting my website on my special day 💋',
+  },
+  {
+    date: '2021/03/07',
+    name: 'We will take home our poodle puppy today 🥺🐶!',
+    emoji: ['🐶', '🐩', '🦴', '🐾'],
+    description: `Hello world, we will take home our puppy "chicken" today! BRB still on Youtube watching puppy training content. Blog soon.`,
+  },
+  {
+    date: '2021/03/17',
+    name: '1 year lockdown(-ish) due to Covid-19 with no end in sight ☹️ 🇵🇭',
+    emoji: ['🦠', '🇵🇭', '😷', '😷', '🏡', '💉'],
+    description:
+      "This time last year we were on a meeting on who will be put on forced leave and who will start working from home. As a new employee (of only one month), I wasn't sure I was still employed. Fast forward to today and we are still WFH and lockdowns are still not lifted despite the growing number of people going outisde 👻. That's 1 whole year of confusion and bad governance.",
     link: {
-      href: 'mailto:gioweeargao@gmail.com?Subject=HBD%20Gwe!',
-      label: 'Greet me via email',
+      href: 'https://gwenduling.com/blog/in-quarantine-2020',
+      label: 'Quarantine 2020 blog',
+    },
+  },
+  {
+    date: '2021/10/10',
+    name: "Happy 1 year since moving out of mama's house 🎈",
+    emoji: ['🏠', '🏡', '💸', '💑', '💆🏻‍♀️', '🏳'],
+    description:
+      'A year of learning to do my chores and balancing our monthly bills. A year of AJ learning to cook my favorite dishes. A year in a healthy environment where my mental health came first. Wow we did that 🥺.',
+    link: {
+      href: 'https://gwenduling.com/blog/timeline-building-our-house',
+      label: 'Building Our House blog',
     },
   },
   {

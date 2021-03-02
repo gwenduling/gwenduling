@@ -36,7 +36,25 @@
     background-color: var(--color-default);
   }
 
-  .footer-link .link {
-    padding-right: 5px;
+  .footer-link {
+    display: flex;
+    align-items: center;
+    .link {
+      display: flex;
+      flex-basis: 20px;
+      flex-shrink: 0;
+      padding-right: 5px;
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &:focus-within {
+        img {
+          outline: 0;
+          box-shadow: 0 0 5px 4px var(--color-yellow);
+        }
+      }
+    }
   }
 }

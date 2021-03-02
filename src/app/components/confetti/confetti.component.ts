@@ -37,10 +37,10 @@ export class ConfettiComponent implements OnInit {
   }
 
   generateEmojis(): void {
-    for (let iterate = 0; iterate < 100; iterate++) {
+    for (let iterate = 0; iterate < 150; iterate++) {
       const x = Math.floor(Math.random() * this.canvasWidth!);
       const offsetY = Math.abs(Math.floor(Math.random() * 300));
-      const fontSize = Math.floor(Math.random() * 70);
+      const fontSize = Math.floor(Math.random() * 40) + 20;
 
       this.emojies!.push({
         emoji: this.emoji![Math.floor(Math.random() * this.emoji!.length)],
@@ -50,7 +50,7 @@ export class ConfettiComponent implements OnInit {
         fontSize,
       });
 
-      if (iterate === 99) {
+      if (iterate === 149) {
         this.drawConfetti();
         this.endDraw();
       }

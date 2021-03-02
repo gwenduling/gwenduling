@@ -24,11 +24,10 @@
 .event-component {
   @extend ._padding-y;
   position: relative;
-  text-align: center;
 
   .title {
     @extend ._text-title;
-    font-size: 30px;
+    font-size: 20px;
     color: var(--color-yellow-darker);
   }
 
@@ -52,7 +51,6 @@
 
 .event-buttons {
   display: flex;
-  justify-content: center;
   margin-top: 10px;
 
   .button {
@@ -75,9 +73,6 @@
 
 @media (max-width: 460px) {
   .event-component {
-    .title {
-      font-size: 25px;
-    }
     .close {
       right: 15px;
       top: 15px;
